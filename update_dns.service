@@ -1,0 +1,14 @@
+[Unit]
+Description=Monitor Docker Containers and Update /etc/hosts
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/update_dns.sh
+Restart=always
+User=root
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+Environment=PYTHONUNBUFFERED=1
+WorkingDirectory=/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
